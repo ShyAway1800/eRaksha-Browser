@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="eRaksha Browser" Height="720" Width="1280" Loaded="browser_Loaded" Background="#FF0E0E0E" MinHeight="720" MinWidth="1280" Icon="logo.png" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="txtUri" MouseLeftButtonDown="txtUri_MouseLeftButtonDown" TextWrapping="Wrap" Text="Enter URL" Height="27" KeyDown="txtUri_KeyDown" VerticalAlignment="Top" FontSize="16" BorderBrush="Transparent" Background="#FF192E3C" Foreground="White" Margin="123,5,72,0">
+        <TextBox x:Name="txtUri" MouseLeftButtonDown="txtUri_MouseLeftButtonDown" TextWrapping="Wrap" Text="Enter URL" Height="27" KeyDown="txtUri_KeyDown" VerticalAlignment="Top" FontSize="16" BorderBrush="Transparent" Background="#FF192E3C" Foreground="White" Margin="139,5,72,0">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -25,7 +25,7 @@
                 <ImageBrush ImageSource="search.png"/>
             </Button.Background>
         </Button>
-        <TabControl x:Name="tabSystem" Margin="31,37,0,0" Background="#FF5CAADE" BorderBrush="Transparent">
+        <TabControl x:Name="tabSystem" Margin="47,37,0,0" Background="#FF5CAADE" BorderBrush="Transparent">
             <TabItem x:Name="tab1" Header="1" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid Background="Transparent">
 
@@ -33,7 +33,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="btnHome" VerticalAlignment="Top" Height="30" Click="btnHome_Click" MouseRightButtonUp="btnHome_MouseRightButtonUp" HorizontalAlignment="Left" Width="30" Margin="0,5,0,0">
+        <Button x:Name="btnHome" VerticalAlignment="Top" Height="42" Click="btnHome_Click" MouseRightButtonUp="btnHome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="0,5,0,0">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -46,7 +46,7 @@
                 <ContextMenu x:Name="Menu"></ContextMenu>
             </Button.ContextMenu>
         </Button>
-        <Button x:Name="btnForward" HorizontalAlignment="Left" Margin="61,5,0,0" VerticalAlignment="Top" Width="27" Height="27" Click="btnForward_Click">
+        <Button x:Name="btnForward" HorizontalAlignment="Left" Margin="77,5,0,0" VerticalAlignment="Top" Width="27" Height="27" Click="btnForward_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -56,7 +56,7 @@
                 <ImageBrush ImageSource="forward.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="31,5,0,0" VerticalAlignment="Top" Width="27" Height="27" Click="btnBack_Click">
+        <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="47,5,0,0" VerticalAlignment="Top" Width="27" Height="27" Click="btnBack_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -79,7 +79,7 @@
                 <ImageBrush ImageSource="history.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnRefresh" HorizontalAlignment="Left" Margin="91,5,0,0" VerticalAlignment="Top" Width="27" Height="27" Click="btnRefresh_Click">
+        <Button x:Name="btnRefresh" HorizontalAlignment="Left" Margin="107,5,0,0" VerticalAlignment="Top" Width="27" Height="27" Click="btnRefresh_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -89,8 +89,24 @@
                 <ImageBrush ImageSource="refresh.png"/>
             </Button.Background>
         </Button>
-
-
+        <Button x:Name="btnWelcome" VerticalAlignment="Top" Height="42" MouseRightButtonUp="btnWelcome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="0,69,0,0" Click="btnWelcome_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="welcome.png"/>
+            </Button.Background>
+            <Button.ContextMenu>
+                <ContextMenu x:Name="Menu1"/>
+            </Button.ContextMenu>
+        </Button>
+        <Rectangle x:Name="WelcomeMenu" HorizontalAlignment="Left" Margin="47,0,0,0" Stroke="Transparent" Width="302" Visibility="Visible" MouseLeave="WelcomeMenu_MouseLeave">
+            <Rectangle.Fill>
+                <ImageBrush Stretch="UniformToFill" ImageSource="00dfd96134c2f1f22b8067f726eca68efd701b95.jpeg"/>
+            </Rectangle.Fill>
+        </Rectangle>
     </Grid>
     <Window.Resources>
         <Style TargetType="{x:Type TabItem}">

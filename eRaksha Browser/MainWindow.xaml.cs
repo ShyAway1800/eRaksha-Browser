@@ -248,5 +248,27 @@ namespace eRaksha_Browser
             var title = document1.DocumentNode.SelectSingleNode("html/head/title").InnerText;
             tabitem.Header = title;
         }
+
+        private void btnWelcome_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void btnWelcome_Click(object sender, RoutedEventArgs e)
+        {
+            if (WelcomeMenu.Visibility == Visibility.Hidden)
+            {
+                WelcomeMenu.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                WelcomeMenu.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void WelcomeMenu_MouseLeave(object sender, MouseEventArgs e)
+        {
+            WelcomeMenu.Visibility = Visibility.Hidden;
+        }
     }
 }
