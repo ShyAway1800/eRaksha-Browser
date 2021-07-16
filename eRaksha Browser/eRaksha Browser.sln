@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eRaksha Browser", "eRaksha Browser.csproj", "{3994960D-88C8-4713-8DB7-EF3F77AB3832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "First Time Setup", "..\First Time Setup\First Time Setup.csproj", "{7FF2EEC8-0C23-4B59-896C-1D7BD6FE1448}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3994960D-88C8-4713-8DB7-EF3F77AB3832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3994960D-88C8-4713-8DB7-EF3F77AB3832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3994960D-88C8-4713-8DB7-EF3F77AB3832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3994960D-88C8-4713-8DB7-EF3F77AB3832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FF2EEC8-0C23-4B59-896C-1D7BD6FE1448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FF2EEC8-0C23-4B59-896C-1D7BD6FE1448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FF2EEC8-0C23-4B59-896C-1D7BD6FE1448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FF2EEC8-0C23-4B59-896C-1D7BD6FE1448}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85393CFE-B932-4C0C-9E31-BA082F89D20F}
+	EndGlobalSection
+EndGlobal
