@@ -6,6 +6,7 @@ using HtmlAgilityPack;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System;
+using System.IO;
 
 namespace eRaksha_Browser
 {
@@ -15,6 +16,9 @@ namespace eRaksha_Browser
         List<string> WebPages;
         int Current = 0;
 
+        string configPath = @"C:\ProgramData\eRaksha\config.cfg";
+        string setupPath = @"C:\Users\Desktop 1\Desktop\eRaksha Project\First Time Setup\bin\Release\First Time Setup.exe";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -22,6 +26,8 @@ namespace eRaksha_Browser
 
         private void browser_Loaded(object sender, RoutedEventArgs e)
         {
+            CheckConfig();
+
             WebPages = new List<string>();
             WebPages.Add("https://www.duckduckgo.com");
 
@@ -52,6 +58,18 @@ namespace eRaksha_Browser
             tab1.Header = title;
 
             txtUri.Text = viewer.Address;
+        }
+
+        void CheckConfig()
+        {
+            if (File.Exists(configPath))
+            {
+                lblUserName.Content = File.ReadAllText(configPath);
+            }
+            else
+            {
+                Process.Start(setupPath);
+            }
         }
 
         public void newwinClicked(object sender, RoutedEventArgs e)
