@@ -102,11 +102,15 @@
                 <ContextMenu x:Name="Menu1"/>
             </Button.ContextMenu>
         </Button>
-        <Rectangle x:Name="WelcomeMenu" HorizontalAlignment="Left" Margin="47,0,0,0" Stroke="Transparent" Width="302" Visibility="Visible" MouseLeave="WelcomeMenu_MouseLeave">
-            <Rectangle.Fill>
-                <ImageBrush Stretch="UniformToFill" ImageSource="00dfd96134c2f1f22b8067f726eca68efd701b95.jpeg"/>
-            </Rectangle.Fill>
-        </Rectangle>
+
+        <DockPanel IsVisibleChanged="WelcomeMenu_IsVisibleChanged" x:Name="WelcomeMenu" HorizontalAlignment="Left" Margin="47,37,0,0" Width="302" Visibility="Visible" MouseLeave="WelcomeMenu_MouseLeave">
+            <DockPanel.Background>
+                <ImageBrush ImageSource="00dfd96134c2f1f22b8067f726eca68efd701b95.jpeg"/>
+            </DockPanel.Background>
+            <Label x:Name="lblWelcomeBack" Content="WELCOME BACK," HorizontalAlignment="Left" Height="38" VerticalAlignment="Top" Foreground="White" FontSize="20" FontWeight="Bold" Width="170" Margin="0,42,0,0"/>
+            <Label x:Name="lblUserName" Content="Guest" Foreground="White" FontSize="20" Width="321" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-170,69,0,0"/>
+            <Label x:Name="lblDate" Content="Date" Foreground="White" FontSize="20" Width="321" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-300,185,0,0"/>
+        </DockPanel>
     </Grid>
     <Window.Resources>
         <Style TargetType="{x:Type TabItem}">

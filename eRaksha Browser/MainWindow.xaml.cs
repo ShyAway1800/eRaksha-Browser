@@ -5,6 +5,7 @@ using CefSharp.Wpf;
 using HtmlAgilityPack;
 using System.Diagnostics;
 using System.Collections.Generic;
+using System;
 
 namespace eRaksha_Browser
 {
@@ -269,6 +270,12 @@ namespace eRaksha_Browser
         private void WelcomeMenu_MouseLeave(object sender, MouseEventArgs e)
         {
             WelcomeMenu.Visibility = Visibility.Hidden;
+        }
+
+        private void WelcomeMenu_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            DateTime currentTime = DateTime.Now;
+            lblDate.Content = currentTime;
         }
     }
 }
