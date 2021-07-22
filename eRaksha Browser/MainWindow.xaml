@@ -111,13 +111,13 @@
             <Label x:Name="lblUserName" Content="Guest" Foreground="White" FontSize="20" Width="321" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-170,69,0,0"/>
             <Label x:Name="lblDate" Content="Date" Foreground="White" FontSize="20" Width="321" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-300,185,0,0"/>
         </DockPanel>
-        <DockPanel x:Name="WhatsappMenu" HorizontalAlignment="Left" Margin="47,37,0,0" Width="567" Visibility="Hidden" MouseLeave="WhatsappMenu_MouseLeave">
+        <DockPanel x:Name="WhatsappMenu" Margin="47,37,0,0" Visibility="Hidden" HorizontalAlignment="Left" Width="720">
             <DockPanel.Background>
                 <ImageBrush ImageSource="00dfd96134c2f1f22b8067f726eca68efd701b95.jpeg"/>
             </DockPanel.Background>
             <cefSharp:ChromiumWebBrowser x:Name="whatsappwebplayer" Address="https://web.whatsapp.com"/>
         </DockPanel>
-        <DockPanel x:Name="InstagramMenu" HorizontalAlignment="Left" Margin="47,37,0,0" Width="567" Visibility="Hidden" MouseLeave="InstagramMenu_MouseLeave">
+        <DockPanel x:Name="InstagramMenu" Margin="47,37,0,0" Visibility="Hidden" HorizontalAlignment="Left" Width="720">
             <DockPanel.Background>
                 <ImageBrush ImageSource="00dfd96134c2f1f22b8067f726eca68efd701b95.jpeg"/>
             </DockPanel.Background>

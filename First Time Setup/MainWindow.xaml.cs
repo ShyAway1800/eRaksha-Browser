@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Diagnostics;
+using System;
 
 namespace First_Time_Setup
 {
@@ -13,7 +14,7 @@ namespace First_Time_Setup
         string configPath = @"C:\ProgramData\eRaksha\config.cfg";
         string instaconfig = @"C:\ProgramData\eRaksha\insta.cfg";
         string webconfig = @"C:\ProgramData\eRaksha\web.cfg";
-        string browserPath = @"C:\Users\harsh\Desktop\eRaksha Project\eRaksha Browser\bin\Release\eRaksha Browser.exe";
+        string browserPath = AppDomain.CurrentDomain.BaseDirectory + @"\eRaksha Browser.exe";
 
         public MainWindow()
         {

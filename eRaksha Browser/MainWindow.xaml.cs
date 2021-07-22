@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System;
 using System.IO;
+using CefSharp;
 
 namespace eRaksha_Browser
 {
@@ -19,15 +20,24 @@ namespace eRaksha_Browser
         string configPath = @"C:\ProgramData\eRaksha\config.cfg";
         string instaconfig = @"C:\ProgramData\eRaksha\insta.cfg";
         string webconfig = @"C:\ProgramData\eRaksha\web.cfg";
-        string setupPath = @"C:\Users\harsh\Desktop\eRaksha Project\First Time Setup\bin\Release\First Time Setup.exe";
+        string setupPath = AppDomain.CurrentDomain.BaseDirectory + @"\First Time Setup.exe"; 
+        string cachePath = @"C:\ProgramData\eRaksha\cache\";
 
         public MainWindow()
         {
-            InitializeComponent();
+
+            CefSettings Settings = new CefSettings();
+            Settings.CachePath = cachePath;
+            Cef.Initialize(Settings);
         }
 
         private void browser_Loaded(object sender, RoutedEventArgs e)
         {
+            if(!Directory.Exists(cachePath))
+            {
+                Directory.CreateDirectory(cachePath);
+            }
+
             CheckConfig();
 
             WelcomeMenu.Visibility = Visibility.Visible;
@@ -72,7 +82,10 @@ namespace eRaksha_Browser
             }
             else
             {
-                Process.Start(setupPath);
+                Process fts = new Process();
+                fts.StartInfo.FileName = setupPath;
+                fts.StartInfo.Verb = "runas";
+                fts.Start();
             }
 
             if(File.Exists(webconfig))
@@ -320,36 +333,58 @@ namespace eRaksha_Browser
 
         private void btnWhatsapp_Click(object sender, RoutedEventArgs e)
         {
-            if (WhatsappMenu.Visibility == Visibility.Hidden)
+            if(InstagramMenu.Visibility == Visibility.Visible)
             {
-                WhatsappMenu.Visibility = Visibility.Visible;
+                InstagramMenu.Visibility = Visibility.Hidden;
+             
+                if (WhatsappMenu.Visibility == Visibility.Hidden)
+                {
+                    WhatsappMenu.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    WhatsappMenu.Visibility = Visibility.Hidden;
+                }
             }
             else
             {
-                WhatsappMenu.Visibility = Visibility.Hidden;
+                if (WhatsappMenu.Visibility == Visibility.Hidden)
+                {
+                    WhatsappMenu.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    WhatsappMenu.Visibility = Visibility.Hidden;
+                }
             }
         }
 
         private void btnInstagram_Click(object sender, RoutedEventArgs e)
         {
-            if (InstagramMenu.Visibility == Visibility.Hidden)
+            if (WhatsappMenu.Visibility == Visibility.Visible)
             {
-                InstagramMenu.Visibility = Visibility.Visible;
+                WhatsappMenu.Visibility = Visibility.Hidden;
+
+                if (InstagramMenu.Visibility == Visibility.Hidden)
+                {
+                    InstagramMenu.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    InstagramMenu.Visibility = Visibility.Hidden;
+                }
             }
             else
             {
-                InstagramMenu.Visibility = Visibility.Hidden;
+                if (InstagramMenu.Visibility == Visibility.Hidden)
+                {
+                    InstagramMenu.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    InstagramMenu.Visibility = Visibility.Hidden;
+                }
             }
-        }
-
-        private void InstagramMenu_MouseLeave(object sender, MouseEventArgs e)
-        {
-            InstagramMenu.Visibility = Visibility.Hidden;
-        }
-
-        private void WhatsappMenu_MouseLeave(object sender, MouseEventArgs e)
-        {
-            WhatsappMenu.Visibility = Visibility.Hidden;
         }
     }
 }
