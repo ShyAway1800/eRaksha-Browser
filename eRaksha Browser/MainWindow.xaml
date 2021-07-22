@@ -33,7 +33,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="btnHome" VerticalAlignment="Top" Height="42" Click="btnHome_Click" MouseRightButtonUp="btnHome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="0,5,0,0">
+        <Button x:Name="btnHome" VerticalAlignment="Top" Height="42" Click="btnHome_Click" MouseRightButtonUp="btnHome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="3,5,0,0">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -89,7 +89,7 @@
                 <ImageBrush ImageSource="refresh.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnWelcome" VerticalAlignment="Top" Height="42" MouseRightButtonUp="btnWelcome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="0,69,0,0" Click="btnWelcome_Click">
+        <Button x:Name="btnWelcome" VerticalAlignment="Top" Height="42" MouseRightButtonUp="btnWelcome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="3,69,0,0" Click="btnWelcome_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -123,7 +123,7 @@
             </DockPanel.Background>
             <cefSharp:ChromiumWebBrowser x:Name="instagramplayer" Address="https://instagram.com"/>
         </DockPanel>
-        <Button x:Name="btnWhatsapp" VerticalAlignment="Top" Height="42" MouseRightButtonUp="btnWelcome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="0,126,0,0" Click="btnWhatsapp_Click">
+        <Button x:Name="btnWhatsapp" VerticalAlignment="Top" Height="42" MouseRightButtonUp="btnWelcome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="3,126,0,0" Click="btnWhatsapp_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -136,7 +136,7 @@
                 <ContextMenu x:Name="Menu2"/>
             </Button.ContextMenu>
         </Button>
-        <Button x:Name="btnInstagram" VerticalAlignment="Top" Height="42" MouseRightButtonUp="btnWelcome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="0,173,0,0" Click="btnInstagram_Click">
+        <Button x:Name="btnInstagram" VerticalAlignment="Top" Height="42" MouseRightButtonUp="btnWelcome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="3,173,0,0" Click="btnInstagram_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -147,6 +147,19 @@
             </Button.Background>
             <Button.ContextMenu>
                 <ContextMenu x:Name="Menu3"/>
+            </Button.ContextMenu>
+        </Button>
+        <Button x:Name="btnSettings" MouseRightButtonUp="btnWelcome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="3,0,0,3" Click="btnSettings_Click" Height="42" VerticalAlignment="Bottom">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="setup.png"/>
+            </Button.Background>
+            <Button.ContextMenu>
+                <ContextMenu x:Name="Menu4"/>
             </Button.ContextMenu>
         </Button>
     </Grid>

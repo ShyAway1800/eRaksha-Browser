@@ -82,10 +82,8 @@ namespace eRaksha_Browser
             }
             else
             {
-                Process fts = new Process();
-                fts.StartInfo.FileName = setupPath;
-                fts.StartInfo.Verb = "runas";
-                fts.Start();
+                MessageBox.Show("Welcome to eRaksha Browser. Please use the config tool to setup your browser for first time.", "Welcome - Setup");
+                Process.Start("explorer.exe", @"C:\Users\harsh\desktop\Final");
             }
 
             if(File.Exists(webconfig))
@@ -385,6 +383,12 @@ namespace eRaksha_Browser
                     InstagramMenu.Visibility = Visibility.Hidden;
                 }
             }
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Browser was unable to open the tool for you. Please run the tool manually.", "Error 0xC00001");
+            Process.Start("explorer.exe", @"C:\Users\harsh\Desktop\Final");
         }
     }
 }

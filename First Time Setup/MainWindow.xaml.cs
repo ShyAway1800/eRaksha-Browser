@@ -23,19 +23,28 @@ namespace First_Time_Setup
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            File.WriteAllText(configPath, txtUsername.Text);
-            
-            if(tikInstagram.IsChecked == true)
-                File.Create(instaconfig);
-            
-
-            if(tikWhatsapp.IsChecked == true)
-                File.Create(webconfig);
-
-            foreach(var process in Process.GetProcessesByName("eRaksha Browser"))
+            foreach (var process in Process.GetProcessesByName("eRaksha Browser"))
                 process.Kill();
 
-            Process.Start(browserPath);
+            File.WriteAllText(configPath, txtUsername.Text);
+            
+            if (tikInstagram.IsChecked == true)
+                File.Create(instaconfig);
+            else
+                if (File.Exists(instaconfig))
+                    File.Delete(instaconfig);
+
+
+            if (tikWhatsapp.IsChecked == true)
+                File.Create(webconfig);
+            else
+                if (File.Exists(webconfig))
+                    File.Delete(webconfig);
+
+            Process init = new Process();
+            init.StartInfo.FileName = browserPath;
+            init.StartInfo.Verb = "runas";
+            init.Start();
 
             this.Close();
         }
