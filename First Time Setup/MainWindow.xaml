@@ -15,7 +15,7 @@
         </Grid.Background>
         <Label Content="FIRST TIME SETUP" HorizontalAlignment="Left" VerticalAlignment="Top" Height="74" Width="399" Foreground="White" FontSize="48" Margin="6,0,0,0"/>
         <Label Content="We just need your name to make the browser personalized!" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
-        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Height="35" BorderBrush="Transparent" Margin="10,98,0,0" TextWrapping="Wrap" FontSize="20" Text="testing" VerticalAlignment="Top" Width="266">
+        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Height="35" BorderBrush="Transparent" Margin="10,98,0,0" TextWrapping="Wrap" FontSize="20" Text="Guest" VerticalAlignment="Top" Width="266">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -29,5 +29,26 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Label Content="Get social media integrated into browser!" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
+        <CheckBox x:Name="tikWhatsapp" Content="WhatsApp" HorizontalAlignment="Left" Margin="10,180,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="Transparent">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+            </CheckBox.LayoutTransform>
+            <CheckBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </CheckBox.Resources>
+        </CheckBox>
+        <CheckBox x:Name="tikInstagram" Content="Instagram" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="Transparent">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+            </CheckBox.LayoutTransform>
+            <CheckBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </CheckBox.Resources>
+        </CheckBox>
     </Grid>
 </Window>

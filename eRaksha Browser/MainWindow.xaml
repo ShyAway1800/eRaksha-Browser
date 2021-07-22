@@ -103,7 +103,7 @@
             </Button.ContextMenu>
         </Button>
 
-        <DockPanel IsVisibleChanged="WelcomeMenu_IsVisibleChanged" x:Name="WelcomeMenu" HorizontalAlignment="Left" Margin="47,37,0,0" Width="302" Visibility="Visible" MouseLeave="WelcomeMenu_MouseLeave">
+        <DockPanel IsVisibleChanged="WelcomeMenu_IsVisibleChanged" x:Name="WelcomeMenu" HorizontalAlignment="Left" Margin="47,37,0,0" Width="302" Visibility="Hidden" MouseLeave="WelcomeMenu_MouseLeave">
             <DockPanel.Background>
                 <ImageBrush ImageSource="00dfd96134c2f1f22b8067f726eca68efd701b95.jpeg"/>
             </DockPanel.Background>
@@ -111,6 +111,44 @@
             <Label x:Name="lblUserName" Content="Guest" Foreground="White" FontSize="20" Width="321" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-170,69,0,0"/>
             <Label x:Name="lblDate" Content="Date" Foreground="White" FontSize="20" Width="321" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-300,185,0,0"/>
         </DockPanel>
+        <DockPanel x:Name="WhatsappMenu" HorizontalAlignment="Left" Margin="47,37,0,0" Width="567" Visibility="Hidden" MouseLeave="WhatsappMenu_MouseLeave">
+            <DockPanel.Background>
+                <ImageBrush ImageSource="00dfd96134c2f1f22b8067f726eca68efd701b95.jpeg"/>
+            </DockPanel.Background>
+            <cefSharp:ChromiumWebBrowser x:Name="whatsappwebplayer" Address="https://web.whatsapp.com"/>
+        </DockPanel>
+        <DockPanel x:Name="InstagramMenu" HorizontalAlignment="Left" Margin="47,37,0,0" Width="567" Visibility="Hidden" MouseLeave="InstagramMenu_MouseLeave">
+            <DockPanel.Background>
+                <ImageBrush ImageSource="00dfd96134c2f1f22b8067f726eca68efd701b95.jpeg"/>
+            </DockPanel.Background>
+            <cefSharp:ChromiumWebBrowser x:Name="instagramplayer" Address="https://instagram.com"/>
+        </DockPanel>
+        <Button x:Name="btnWhatsapp" VerticalAlignment="Top" Height="42" MouseRightButtonUp="btnWelcome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="0,126,0,0" Click="btnWhatsapp_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="whatsapp.png"/>
+            </Button.Background>
+            <Button.ContextMenu>
+                <ContextMenu x:Name="Menu2"/>
+            </Button.ContextMenu>
+        </Button>
+        <Button x:Name="btnInstagram" VerticalAlignment="Top" Height="42" MouseRightButtonUp="btnWelcome_MouseRightButtonUp" HorizontalAlignment="Left" Width="42" Margin="0,173,0,0" Click="btnInstagram_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <ImageBrush ImageSource="instagram.png"/>
+            </Button.Background>
+            <Button.ContextMenu>
+                <ContextMenu x:Name="Menu3"/>
+            </Button.ContextMenu>
+        </Button>
     </Grid>
     <Window.Resources>
         <Style TargetType="{x:Type TabItem}">

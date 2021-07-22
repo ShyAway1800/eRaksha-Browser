@@ -17,7 +17,9 @@ namespace eRaksha_Browser
         int Current = 0;
 
         string configPath = @"C:\ProgramData\eRaksha\config.cfg";
-        string setupPath = @"C:\Users\Desktop 1\Desktop\eRaksha Project\First Time Setup\bin\Release\First Time Setup.exe";
+        string instaconfig = @"C:\ProgramData\eRaksha\insta.cfg";
+        string webconfig = @"C:\ProgramData\eRaksha\web.cfg";
+        string setupPath = @"C:\Users\harsh\Desktop\eRaksha Project\First Time Setup\bin\Release\First Time Setup.exe";
 
         public MainWindow()
         {
@@ -27,6 +29,8 @@ namespace eRaksha_Browser
         private void browser_Loaded(object sender, RoutedEventArgs e)
         {
             CheckConfig();
+
+            WelcomeMenu.Visibility = Visibility.Visible;
 
             WebPages = new List<string>();
             WebPages.Add("https://www.duckduckgo.com");
@@ -69,6 +73,24 @@ namespace eRaksha_Browser
             else
             {
                 Process.Start(setupPath);
+            }
+
+            if(File.Exists(webconfig))
+            {
+                btnWhatsapp.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnWhatsapp.Visibility = Visibility.Hidden;
+            }
+
+            if(File.Exists(instaconfig))
+            {
+                btnInstagram.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnInstagram.Visibility = Visibility.Hidden;
             }
         }
 
@@ -164,7 +186,7 @@ namespace eRaksha_Browser
                 MenuItem hisotry = new MenuItem();
                 hisotry.Click += Hisotry_Click;
                 hisotry.Header = strUrl;
-                hisotry.Width = 184;
+                //hisotry.Width = 184;
 
                 History.Items.Add(hisotry);
 
@@ -229,7 +251,7 @@ namespace eRaksha_Browser
             MenuItem hisotry = new MenuItem();
             hisotry.Click += Hisotry_Click;
             hisotry.Header = Link;
-            hisotry.Width = 184;
+            //hisotry.Width = 184;
 
             History.Items.Add(hisotry);
 
@@ -294,6 +316,40 @@ namespace eRaksha_Browser
         {
             DateTime currentTime = DateTime.Now;
             lblDate.Content = currentTime;
+        }
+
+        private void btnWhatsapp_Click(object sender, RoutedEventArgs e)
+        {
+            if (WhatsappMenu.Visibility == Visibility.Hidden)
+            {
+                WhatsappMenu.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                WhatsappMenu.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void btnInstagram_Click(object sender, RoutedEventArgs e)
+        {
+            if (InstagramMenu.Visibility == Visibility.Hidden)
+            {
+                InstagramMenu.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                InstagramMenu.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void InstagramMenu_MouseLeave(object sender, MouseEventArgs e)
+        {
+            InstagramMenu.Visibility = Visibility.Hidden;
+        }
+
+        private void WhatsappMenu_MouseLeave(object sender, MouseEventArgs e)
+        {
+            WhatsappMenu.Visibility = Visibility.Hidden;
         }
     }
 }

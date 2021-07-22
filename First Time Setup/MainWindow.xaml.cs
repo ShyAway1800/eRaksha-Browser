@@ -11,7 +11,9 @@ namespace First_Time_Setup
     {
         string configFolder = @"C:\ProgramData\eRaksha\";
         string configPath = @"C:\ProgramData\eRaksha\config.cfg";
-        string browserPath = @"C:\Users\Desktop 1\Desktop\eRaksha Project\eRaksha Browser\bin\Debug\eRaksha Browser.exe";
+        string instaconfig = @"C:\ProgramData\eRaksha\insta.cfg";
+        string webconfig = @"C:\ProgramData\eRaksha\web.cfg";
+        string browserPath = @"C:\Users\harsh\Desktop\eRaksha Project\eRaksha Browser\bin\Release\eRaksha Browser.exe";
 
         public MainWindow()
         {
@@ -22,10 +24,15 @@ namespace First_Time_Setup
         {
             File.WriteAllText(configPath, txtUsername.Text);
             
+            if(tikInstagram.IsChecked == true)
+                File.Create(instaconfig);
+            
+
+            if(tikWhatsapp.IsChecked == true)
+                File.Create(webconfig);
+
             foreach(var process in Process.GetProcessesByName("eRaksha Browser"))
-            {
                 process.Kill();
-            }
 
             Process.Start(browserPath);
 
@@ -33,17 +40,28 @@ namespace First_Time_Setup
         }
 
         private void window_Loaded(object sender, RoutedEventArgs e)
-        {
+        { 
             if(Directory.Exists(configFolder))
             {
-                File.Create(configPath);
-            }
-            else
-            {
-                if (!File.Exists(configPath))
+                if(!File.Exists(configPath))
                 {
                     File.Create(configPath);
                 }
+            }
+            else
+            {
+                Directory.CreateDirectory(configFolder);
+                File.Create(configPath);
+            }
+
+            if(File.Exists(webconfig))
+            {
+                tikWhatsapp.IsChecked = true;
+            }
+
+            if(File.Exists(instaconfig))
+            {
+                tikInstagram.IsChecked = true;
             }
         }
     }

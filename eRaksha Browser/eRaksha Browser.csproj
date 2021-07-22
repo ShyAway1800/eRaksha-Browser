@@ -158,6 +158,12 @@
   <ItemGroup>
     <Resource Include="00dfd96134c2f1f22b8067f726eca68efd701b95.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="whatsapp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="instagram.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
