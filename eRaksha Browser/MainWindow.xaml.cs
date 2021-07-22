@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 using CefSharp;
+using IWshRuntimeLibrary;
 
 namespace eRaksha_Browser
 {
@@ -20,7 +21,7 @@ namespace eRaksha_Browser
         string configPath = @"C:\ProgramData\eRaksha\config.cfg";
         string instaconfig = @"C:\ProgramData\eRaksha\insta.cfg";
         string webconfig = @"C:\ProgramData\eRaksha\web.cfg";
-        string setupPath = AppDomain.CurrentDomain.BaseDirectory + @"\First Time Setup.exe"; 
+        string setupPath = @"C:\ProgramData\eRaksha\Setup\";
         string cachePath = @"C:\ProgramData\eRaksha\cache\";
 
         public MainWindow()
@@ -33,6 +34,13 @@ namespace eRaksha_Browser
 
         private void browser_Loaded(object sender, RoutedEventArgs e)
         {
+            if(!System.IO.Directory.Exists(setupPath))
+            {
+                Directory.CreateDirectory(setupPath);
+            }
+
+            CreateShortcut("Setup eRaksha Browser", setupPath, AppDomain.CurrentDomain.BaseDirectory + @"\First Time Setup.exe");
+
             if(!Directory.Exists(cachePath))
             {
                 Directory.CreateDirectory(cachePath);
@@ -76,17 +84,17 @@ namespace eRaksha_Browser
 
         void CheckConfig()
         {
-            if (File.Exists(configPath))
+            if (System.IO.File.Exists(configPath))
             {
-                lblUserName.Content = File.ReadAllText(configPath);
+                lblUserName.Content = System.IO.File.ReadAllText(configPath);
             }
             else
             {
                 MessageBox.Show("Welcome to eRaksha Browser. Please use the config tool to setup your browser for first time.", "Welcome - Setup");
-                Process.Start("explorer.exe", @"C:\Users\harsh\desktop\Final");
+                Process.Start("explorer.exe", setupPath);
             }
 
-            if(File.Exists(webconfig))
+            if(System.IO.File.Exists(webconfig))
             {
                 btnWhatsapp.Visibility = Visibility.Visible;
             }
@@ -95,7 +103,7 @@ namespace eRaksha_Browser
                 btnWhatsapp.Visibility = Visibility.Hidden;
             }
 
-            if(File.Exists(instaconfig))
+            if(System.IO.File.Exists(instaconfig))
             {
                 btnInstagram.Visibility = Visibility.Visible;
             }
@@ -388,7 +396,18 @@ namespace eRaksha_Browser
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Browser was unable to open the tool for you. Please run the tool manually.", "Error 0xC00001");
-            Process.Start("explorer.exe", @"C:\Users\harsh\Desktop\Final");
+            Process.Start("explorer.exe", setupPath);
+        }
+
+        public static void CreateShortcut(string shortcutName, string shortcutPath, string fileLocation)
+        {
+            string shortcutLocation = Path.Combine(shortcutPath, shortcutName + ".lnk");
+            WshShell shell = new WshShell();
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutLocation);
+            shortcut.Description = "Use this tool to setup your eRaksha Browser";
+            shortcut.IconLocation = @"C:\ProgramFiles\eRaksha\eRaksha Browser.exe";
+            shortcut.TargetPath = fileLocation;
+            shortcut.Save();
         }
     }
 }
