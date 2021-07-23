@@ -75,10 +75,16 @@ namespace eRaksha_Browser
             flushCache.Header = "Flush Cache";
             flushCache.Width = 184;
 
+            MenuItem setup = new MenuItem();
+            setup.Click += Setup_Click;
+            setup.Header = "Browser Setup";
+            setup.Width = 184;
+
             Menu.Items.Add(newtab);
             Menu.Items.Add(newwin);
             Menu.Items.Add(closetab);
             Menu.Items.Add(flushCache);
+            Menu.Items.Add(setup);
 
             var webGet = new HtmlWeb();
             var document = webGet.Load(viewer.Address);
@@ -86,6 +92,12 @@ namespace eRaksha_Browser
             tab1.Header = title;
 
             txtUri.Text = viewer.Address;
+        }
+
+        private void Setup_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Browser was unable to open the tool for you. Please run the tool manually.", "Error 0xC00001");
+            Process.Start("explorer.exe", setupPath);
         }
 
         private void FlushCache_Click(object sender, RoutedEventArgs e)
