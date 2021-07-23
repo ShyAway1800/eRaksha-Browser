@@ -26,7 +26,6 @@ namespace eRaksha_Browser
 
         public MainWindow()
         {
-
             CefSettings Settings = new CefSettings();
             Settings.CachePath = cachePath;
             Cef.Initialize(Settings);
