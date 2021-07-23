@@ -70,9 +70,15 @@ namespace eRaksha_Browser
             closetab.Header = "Close Tab";
             closetab.Width = 184;
 
+            MenuItem flushCache = new MenuItem();
+            flushCache.Click += FlushCache_Click;
+            flushCache.Header = "Flush Cache";
+            flushCache.Width = 184;
+
             Menu.Items.Add(newtab);
             Menu.Items.Add(newwin);
             Menu.Items.Add(closetab);
+            Menu.Items.Add(flushCache);
 
             var webGet = new HtmlWeb();
             var document = webGet.Load(viewer.Address);
@@ -80,6 +86,15 @@ namespace eRaksha_Browser
             tab1.Header = title;
 
             txtUri.Text = viewer.Address;
+        }
+
+        private void FlushCache_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult fc = MessageBox.Show("Proceeding will delete your cache logging you out of all sites!", "Warning", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            if(fc == MessageBoxResult.Yes)
+            {
+                Directory.Delete(cachePath, true);
+            }
         }
 
         void CheckConfig()
