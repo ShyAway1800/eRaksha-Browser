@@ -79,11 +79,17 @@ namespace eRaksha_Browser
             setup.Header = "Browser Setup";
             setup.Width = 184;
 
+            MenuItem about = new MenuItem();
+            about.Click += About_Click;
+            about.Header = "About";
+            about.Width = 184;
+
             Menu.Items.Add(newtab);
             Menu.Items.Add(newwin);
             Menu.Items.Add(closetab);
             Menu.Items.Add(flushCache);
             Menu.Items.Add(setup);
+            Menu.Items.Add(about);
 
             var webGet = new HtmlWeb();
             var document = webGet.Load(viewer.Address);
@@ -91,6 +97,12 @@ namespace eRaksha_Browser
             tab1.Header = title;
 
             txtUri.Text = viewer.Address;
+        }
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("eRaksha Browser is made by Harshvardhan. It is a secure browser giving the user full access to " +
+                "their data. We don't collect any of your data and given you options to delete your cache.", "About", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Setup_Click(object sender, RoutedEventArgs e)
